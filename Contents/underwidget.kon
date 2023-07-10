@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="utf-8"?>
+<widget minimumVersion="4.0">
+	<settings>
+		<setting name="allowCustomObjectAttributes" value="true"/>
+		<setting name="debug" value="off"/>
+	</settings>
+
+    <!--
+    c - A Steampunk UnderClock
+    Copyright © 2012 Dean Beedell
+
+    This program is free software; you can redistribute it and/or
+    modify it under the terms of the GNU General Public License as
+    published by the Free Software Foundation; either version 2 of
+    the License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.    See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public
+    License along with this program; if not, write to the Free
+    Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston,
+    MA  02110-1301  USA
+
+    UnderWidget - version 0.2
+    17 April, 2014
+    Copyright © 2012 Dean Beedell & Harry Whitfield
+    mailto:dean.beedell@lightquick.co.uk
+    -->
+
+	<window
+		title		= "UnderWidget"
+		name		= "mainWindow"
+		width		= "326 "
+		height		= "312 "
+		visible		= "true"
+		shadow		= "false"
+	>
+
+		<image
+			src			= "Resources/darkness.png"
+			name		= "darkness"
+			hOffset		= "16 "
+			opacity		= "255"
+		/>
+
+		<image
+			src			= "Resources/backgroundCog.png"
+			name		= "backgroundCog"
+			hOffset		= "96"
+			vOffset		= "200"
+			hRegistrationPoint = "51"
+			vRegistrationPoint = "50"
+			opacity		= "130"
+		/>
+
+		<image
+			src			= "Resources/backgroundCog2.png"
+			name		= "backgroundCog2"
+			hOffset		= "226"
+			vOffset		= "80"
+			hRegistrationPoint = "51"
+			vRegistrationPoint = "50"
+			opacity		= "255"
+		/>
+
+		<image
+			src			= "Resources/brassBackplate.png"
+			name		= "brassBackplate"
+			hOffset		= "94 "
+			vOffset		= "78 "
+			opacity		= "255"
+		/>
+
+		<image
+			src			= "Resources/bigCog.png"
+			name		= "bigCog"
+			hOffset		= "130"
+			vOffset		= "115"
+			hRegistrationPoint = "51"
+			vRegistrationPoint = "50"
+			opacity		= "255"
+		/>
+
+		<image
+			src			= "Resources/wheel.png"
+			name		= "wheel"
+			hOffset		= "91"
+			vOffset		= "113"
+			hRegistrationPoint = "39"
+			vRegistrationPoint = "38"
+			opacity		= "255"
+		/>
+
+		<image
+			src			= "Resources/smallCog.png"
+			name		= "smallCog"
+			hOffset		= "187"
+			vOffset		= "120"
+			hRegistrationPoint = "29"
+			vRegistrationPoint = "28"
+			opacity		= "255"
+		/>
+
+		<image
+			src			= "Resources/bigCog2.png"
+			name		= "bigCog2"
+			hOffset		= "211"
+			vOffset		= "216"
+			hRegistrationPoint = "51"
+			vRegistrationPoint = "50"
+			opacity		= "255"
+		/>
+
+		<image
+			src			= "Resources/mountingNutsPlate.png"
+			name		= "mountingNutsPlate"
+			hOffset		= "180 "
+			vOffset		= "117 "
+			opacity		= "255"
+		/>
+
+		<image
+			src			= "Resources/frontplate.png"
+			name		= "frontplate"
+			hOffset		= "61 "
+			vOffset		= "46 "
+			opacity		= "255"
+		/>
+
+		<image
+			src			= "Resources/housing.png"
+			name		= "housing"
+			hOffset		= "143 "
+			vOffset		= "128 "
+			opacity		= "255"
+		/>
+
+		<image
+			src			= "Resources/hourHand.png"
+			name		= "hourHand"
+			hOffset		= "166"
+			vOffset		= "146"
+			hRegistrationPoint = "20"
+			vRegistrationPoint = "110"
+			rotation = "36"
+			opacity		= "255"
+		/>
+
+		<image
+			src			= "Resources/rubberSurround.png"
+			name		= "rubberSurround"
+			hOffset		= "13 "
+			opacity		= "255"
+		/>
+
+		<image
+			src			= "Resources/handles.png"
+			name		= "handles"
+			hOffset		= "52 "
+			vOffset		= "115 "
+			opacity		= "255"
+		/>
+
+		<image
+			src			= "Resources/24HourRing.png"
+			name		= "HourRing"
+			hOffset		= "16 "
+			opacity		= "255"
+		/>
+
+		<image
+			src			= "Resources/winderBelow.png"
+			name		= "winderBelow"
+			hOffset		= "82 "
+			vOffset		= "181 "
+			opacity		= "255"
+		/>
+
+		<image
+			src			= "Resources/redTap.png"
+			name		= "redTap"
+			hOffset		= "77 "
+			vOffset		= "179 "
+			opacity		= "255"
+		/>
+
+		<image
+			src			= "Resources/winderTop.png"
+			name		= "winderTop"
+			hOffset		= "105 "
+			vOffset		= "61 "
+			opacity		= "255"
+		/>
+
+		<image
+			src			= "Resources/rimRubyHole.png"
+			name		= "rimRubyHole"
+			hOffset		= "202 "
+			vOffset		= "209 "
+			opacity		= "255"
+		/>
+
+		<image
+			src			= "Resources/rimRubyHoleCopy.png"
+			name		= "rimRubyHoleCopy"
+			hOffset		= "79 "
+			vOffset		= "102 "
+			opacity		= "255"
+		/>
+
+		<image
+			src			= "Resources/mountingNutsPlateNo2.png"
+			name		= "mountingNutsPlateNo2"
+			hOffset		= "100 "
+			vOffset		= "101 "
+			opacity		= "255"
+		/>
+		<image
+			src			= "Resources/pin.png"
+			name		= "pin"
+			hOffset		= "20 "
+			vOffset		= "101 "
+			opacity		= "255"
+		/>
+		<image
+			src			= "Resources/shadow.png"
+			name		= "shadow"
+			hOffset		= "15 "
+			vOffset		= "-2"
+			opacity		= "255"
+		/>
+
+	</window>
+    <about-box>
+        <image>Resources/underwidget-about.png</image>
+    </about-box>
+
+    <preference hidden="true" description="Check this box if you don't want to see the Licence Conditions again." name="licenceHide" title="Don't Show Licence Again" defaultValue="0" type="checkbox"/>
+
+    <preference title="Shadow Present:" name="shadowPref" type="popup" description="Enable or disable the shadow overlay - this is useful when running the widget as a live part of a steampunk desktop. Gives the widget a 3D hollowed-out effect" defaultValue="enable">
+		<option>enable</option>
+		<option>disable</option>
+    </preference>
+
+        <preference description="This setting controls the relative layer of windows in this widget. You can use it to have your widget always be on top of the other windows - for example. Note Desktop level does nothing on Windows" hidden="false" name="windowLevel" title="Window Level:" defaultValue="normal" type="popup">
+               <option>topmost</option>
+               <option>normal</option>
+               <option>below</option>
+               <option>desktop</option>
+        </preference>
+
+        <preference description="Sound set here - enabled/disabled." hidden="false" group="speech" name="soundPref" title="Sound Preference" defaultValue="enable" type="popup">
+                <option>enable</option>
+		<optionValue>enable</optionValue>
+		<option>disable</option>
+		<optionValue>disable</optionValue>
+        </preference>
+
+
+	<preference description="Changes the total size of the widget. Vary the percentage and the whole widget will alter in size." name="sizePref" title="Widget Size" defaultValue="60" group="general" type="popup">
+		<option>150%</option>
+		<optionValue>150</optionValue>
+		<option>140%</option>
+		<optionValue>140</optionValue>
+		<option>130%</option>
+		<optionValue>130</optionValue>
+		<option>120%</option>
+		<optionValue>120</optionValue>
+		<option>110%</option>
+		<optionValue>110</optionValue>
+		<option>100%</option>
+		<optionValue>100</optionValue>
+		<option>90%</option>
+		<optionValue>90</optionValue>
+		<option>80%</option>
+		<optionValue>80</optionValue>
+		<option>70%</option>
+		<optionValue>70</optionValue>
+		<option>60%</option>
+		<optionValue>60</optionValue>
+		<option>50%</option>
+		<optionValue>50</optionValue>
+		<option>40%</option>
+		<optionValue>40</optionValue>
+		<option>30%</option>
+		<optionValue>30</optionValue>
+		<option>20%</option>
+		<optionValue>20</optionValue>
+		<option>10%</option>
+		<optionValue>10</optionValue>
+		<option>5%</option>
+		<optionValue>5</optionValue>
+	</preference>
+	<preference hidden="false" group="config" description="Widget Hoffset/Left X position default These two values determine the screen position of the widget, leave empty for auto positioning." name="hoffsetpref" title="Hoffset/Left X pos" type="text"/>
+
+	<preference hidden="false" group="config" description="Widget Yoffset/Top Y position default." name="voffsetpref" title="Yoffset/top Y pos" type="text"/>
+
+        <preference hidden="true" description="" name="pinHoffsetPref" title="String:" defaultValue="" type="text"/>
+	<preference hidden="true" description="" name="pinVoffsetPref" title="String:" defaultValue="" type="text"/>
+
+	<preference hidden="true" description="" name="widgetLockPref" title="Widget Locked:" defaultValue="0" type="popup">
+		<option>1</option><optionValue>1</optionValue>
+		<option>0</option><optionValue>0</optionValue>
+	</preference>
+
+        <action trigger="onKeyDown">
+              <![CDATA[
+                if (system.event.keyCode==116) {
+                    print("pressing "+system.event.keyCode);
+                    reloadWidget();
+                }
+               ]]>
+        </action>
+
+	<action trigger="onTellWidget">
+        <![CDATA[
+		handleExternalCall();
+        ]]>
+	</action>
+
+	<action trigger="onload">
+		<![CDATA[
+		include("vitality.js");
+		include("script.js");
+		include("functions.js");
+		include("tellWidget.js");
+	        include("Resources/Licence/Licence.js");
+		startup();
+		]]>
+	</action>
+</widget>

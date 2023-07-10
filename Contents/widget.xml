@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<name>UnderWidget</name>
+        <version>0.9.1</version>
+        <author name="Dean Beedell" href="http://lightquick.co.uk/steampunk-widgets.html?Itemid=264" />
+        <copyright>© 2014 Dean Beedell</copyright>
+        <description>Displays background moving cogs and wheels for the Orrery</description>
+        <image usage="security" src="Resources/security.png" />
+	<platform minVersion = "4.0" />
+	<security>
+          <filesystem>full</filesystem>
+          <http>all</http>
+          <applescript>true</applescript>
+          <command>true</command>
+          <hotkey>false</hotkey>
+	</security>
+</metadata>
