@@ -35,6 +35,8 @@ clock, the single hand points to both the hour and minutes indicating the time.
 The cogs and wheels rotate providing a clockwork motion giving life to your 
 static desktop.
 
+![orreryBeautiful](https://github.com/yereverluvinunclebert/underwidget/assets/2788342/f8a242e9-6883-4edf-bcb7-27c9a55ee536)
+
 The red tap removes the shadow and re-enables it each time you click upon it. 
 You can even interact with each individual cog. Simply click on each.
 
