@@ -2,7 +2,7 @@
   
  The Steampunk Underwidget, written in Javascript and XML for the Yahoo 
  Widget (Konfabulator) Engine. Created for XP, Vista, Win7, 8, 10+ as well as the 
- Apple Mac.
+ Apple Mac prior to Catalina.
  
 ![underwidget](https://github.com/yereverluvinunclebert/underwidget/assets/2788342/9278163f-ffbb-4be2-bb23-9df6e9e8ee16)
 
@@ -73,14 +73,14 @@ Tested on :
    
  Dependencies:
  
- o A windows-alike o/s such as Windows XP, 7-11 or Apple Mac OSX 11.  
+ o A windows-alike o/s such as Windows XP, 7-11 or Apple Mac OSX 11 prior to Catalina.  
  
+  To run this widget properly you may also also need:
  
- To run this widget properly you will also need:
- 
-	1. Steampunk Orrery Timekeeper Widget here; yereverluvinuncleber.deviantar…
-	2. Steampunk Underwidget here: yereverluvinuncleber.deviantar…
-   	
+	1. Steampunk Orrery Timekeeper Widget here - https://www.deviantart.com/yereverluvinuncleber/art/Steampunk-Orrery-Calendar-Clock-Yahoo-Widget-MkII-455720507?q=gallery%3Ayereverluvinuncleber&qo=2
+	2. Leather Desktop wallpaper 1 - https://www.deviantart.com/yereverluvinuncleber/art/Steampunk-Leather-Desktop-Wallpaper-530615051
+ 	3. Leather Desktop wallpaper 2 - https://www.deviantart.com/yereverluvinuncleber/art/Steampunk-Wallpaper-MkII-1440x990-439053362 	
+ 	
   o Installation of the yahoo widget SDK runtime engine  
  
 	Yahoo widget engine for Windows - http://g6auc.me.uk/ywidgets_sdk_setup.exe  
