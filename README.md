@@ -3,10 +3,14 @@
  The Steampunk Underwidget, written in Javascript and XML for the Yahoo 
  Widget (Konfabulator) Engine. Created for XP, Vista, Win7, 8, 10+ as well as the 
  Apple Mac.
+ 
+![underwidget](https://github.com/yereverluvinunclebert/underwidget/assets/2788342/9278163f-ffbb-4be2-bb23-9df6e9e8ee16)
 
 This widget is an attractive steampunk Yahoo widget for your desktop. The 
 Steampunk Underwidget for your Windows/Mac desktop, a fully working yahoo widget 
 and it can be moved around your desktop looking very steampunk indeed. 
+
+![underwidgetDesktop](https://github.com/yereverluvinunclebert/underwidget/assets/2788342/ec1079d1-0d28-43ee-a9d6-579f751a61d4)
 
 The Steampunk Underwidget is a 24hr clock that sits on your steampunk desktop 
 looking as if it is part of that desktop. The underwidget is designed to work 
@@ -19,6 +23,8 @@ to sit deeper into the desktop in a three dimensional sense. The Underwidget
 works better with one of our existing background wallpapers that you can get 
 here . You can see how it works from the image below. The widget really looks 
 as if it is embedded into the actual desktop. 
+
+![underwidget-about](https://github.com/yereverluvinunclebert/underwidget/assets/2788342/c789f6da-d308-4823-a038-742cea82b47d)
 
 The underwidget is still beta and some bits may not work completely, although 
 most bugs have now been fixed. Added dock vitality, correct layering inherited 
@@ -72,8 +78,8 @@ Tested on :
  
  To run this widget properly you will also need:
  
-	1. Steampunk Orrery Timekeeper Widget here; yereverluvinuncleber.deviantar…
-	2. Steampunk Underwidget here: yereverluvinuncleber.deviantar…
+	1. Steampunk Orrery Timekeeper Widget here; yereverluvinuncleber.deviantarâ€¦
+	2. Steampunk Underwidget here: yereverluvinuncleber.deviantarâ€¦
    	
   o Installation of the yahoo widget SDK runtime engine  
  
