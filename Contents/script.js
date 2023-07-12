@@ -199,6 +199,7 @@ function startup() {
     mainWindow.level = preferences.windowLevel.value;
 
     setmenu(); // build the menu
+    checkLockWidget();
     buildVitality("Resources/clock-dock.png",h,m,preferences.windowLevel.value);
     checkShadow();
     setClickPointToolTips();
@@ -266,25 +267,7 @@ redTap.onclick = function () {
 // 
 //==============================
 HourRing.onclick = function () {
-	if (!mainWindow.locked) {
-		mainWindow.locked = true;
-		preferences.widgetLockPref.value = "1";
-		pin.hoffset = system.event.hOffset - 5;
-		pin.Voffset = system.event.vOffset - 5;
-		preferences.pinHoffsetPref.value = pin.hoffset / scale;
-		preferences.pinVoffsetPref.value = pin.voffset / scale;
-		pin.opacity = 255;
-	} else {
-   	        pin.hoffset = system.event.hOffset - 5;
-		pin.Voffset = system.event.vOffset - 5;
-		preferences.pinHoffsetPref.value = pin.hoffset / scale;
-		preferences.pinVoffsetPref.value = pin.voffset / scale;
-		pin.opacity = 255;
-	}
-
-	if (preferences.soundPref.value === "enable") {
-		play(lock, false);
-	}
+    lockWidget();
 };
 
 
@@ -304,15 +287,7 @@ winderTop.onclick = function () {
 // pins the widget in place
 //==============================
 pin.onMouseDown = function () {
-	if (mainWindow.locked) {
-                mainWindow.locked = false;
-	        // this does not work yet
-                pin.opacity = 0;
-		preferences.widgetLockPref.value = "0";
-	}
-	if (preferences.soundPref.value === "enable") {
-		play(lock, false);
-	}
+    lockWidget();
 };
 
 

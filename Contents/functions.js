@@ -1,28 +1,69 @@
 //======================================================================================
-// Function to move the main_window onto the main screen
+// Function to move the main_window onto the main screen - called on startup and by timer
 //======================================================================================
 function mainScreen() {
 // if the widget is off screen then move into the viewable window
 
-    if (preferences.hoffsetpref.value > 0) {
-        mainWindow.hOffset = parseInt(preferences.hoffsetpref.value, 10);
+    print("****************MAINSCREEN********************");
+
+    // check for aspect ratio and determine whether it is in portrait or landscape mode
+    if (screen.width > screen.height) {
+        aspectRatio = "landscape";
+    } else {
+        aspectRatio = "portrait";
     }
-    if (preferences.voffsetpref.value > 0) {
-        mainWindow.vOffset = parseInt(preferences.voffsetpref.value, 10);
+    print("screen.width " + screen.width);
+    print("screen.height " + screen.height);
+    print("aspectRatio " + aspectRatio);
+    // check if the widget has a lock for the screen type.
+    if (aspectRatio === "landscape") {
+        if (preferences.widgetLockLandscapeModePref.value === "enabled") {
+            mainWindow.hoffset = preferences.landscapeHoffsetPref.value;
+            mainWindow.voffset = preferences.landscapeVoffsetPref.value;
+        }
+        if (preferences.widgetHideModePref.value === "landscape") {
+            print("Hiding the widget for landscape mode");
+            widget.visible = false;
+        } else {
+            widget.visible = true;
+        }
+    }
+    // check if the widget has a lock for the screen type.
+    if (aspectRatio === "portrait") {
+        if (preferences.widgetLockPortraitModePref.value === "enabled") {
+            mainWindow.hoffset = preferences.portraitHoffsetPref.value;
+            mainWindow.voffset = preferences.portraitVoffsetPref.value;
+        }
+        if (preferences.widgetHideModePref.value === "portrait") {
+            print("Hiding the widget for portrait mode");
+            widget.visible = false;
+        } else {
+            widget.visible = true;
+        }
     }
 
     if (mainWindow.hOffset < 0) {
         mainWindow.hOffset = 10;
     }
-    if (mainWindow.vOffset < 32) {
-        mainWindow.vOffset = 32; // avoid Mac toolbar
+    if (mainWindow.vOffset < 0) {
+        mainWindow.vOffset = 0; // avoid Mac toolbar
     }
-    if (mainWindow.hOffset > screen.width - 50) {
-        mainWindow.hOffset = screen.width - mainWindow.width;
+    if (mainWindow.hOffset > screen.width - 50) { //adjust for the extra width of the help page
+        mainWindow.hOffset = screen.width - mainWindow.width + 220;
     }
-    if (mainWindow.vOffset > screen.height - 50) {
+    if (mainWindow.vOffset > screen.height - 150) {	 //adjust for the extra height of the help page
         mainWindow.vOffset = screen.height - mainWindow.height; // avoid Mac toolbar
     }
+
+    // calculate the current hlocation in % of the screen
+    //store the current hlocation in % of the screen
+    if (preferences.hLocationPercPref.value !== "") {
+        preferences.hLocationPercPref.value = String((mainWindow.hoffset / screen.width) * 100);
+    }
+    if (preferences.vLocationPercPref.value !== "") {
+        preferences.vLocationPercPref.value = String((mainWindow.voffset / screen.height) * 100);
+    }
+
 }
 //=====================
 //End function
@@ -468,3 +509,115 @@ function performCommand(method) {
 //=====================
 //End function
 //=====================
+
+
+
+
+//======================================================================================
+// Function to lock the widget
+//======================================================================================
+function lockWidget() {
+    // check for aspect ratio and determine whether it is in portrait or landscape mode
+    if (screen.width > screen.height) {
+        aspectRatio = "landscape";
+    } else {
+        aspectRatio = "portrait";
+    }
+    if (mainWindow.locked) {
+        pin.opacity = 1;
+        mainWindow.locked = false;
+
+        // check if the widget has a lock for the screen type.
+        if (aspectRatio === "landscape") {
+            preferences.widgetLockLandscapeModePref.value = "disabled";
+        }
+        // check if the widget has a lock for the screen type.
+        if (aspectRatio === "portrait") {
+            preferences.widgetLockPortraitModePref.value = "disabled";
+        }
+        pin.tooltip = "click me to lock the widget in place";
+        //screw2.tooltip="click me to lock the widget in place";
+        //paper.tooltip="";
+        //woodSurround.tooltip="";
+    } else {
+        pin.opacity = 255;
+        mainWindow.locked = true;
+
+        // check if the widget has a lock for the screen type.
+        if (aspectRatio === "landscape") {
+            preferences.widgetLockLandscapeModePref.value = "enabled";
+            preferences.landscapeHoffsetPref.value = mainWindow.hoffset;
+            preferences.landscapeVoffsetPref.value = mainWindow.voffset;
+        }
+        // check if the widget has a lock for the screen type.
+        if (aspectRatio === "portrait") {
+            preferences.widgetLockPortraitModePref.value = "enabled";
+            preferences.portraitHoffsetPref.value = mainWindow.hoffset;
+            preferences.portraitVoffsetPref.value = mainWindow.voffset;
+        }
+        pin.tooltip = "click me to unlock";
+
+        //screw2.tooltip="click me to unlock";
+        //paper.tooltip=woodSurround.tooltip="The widget is currently locked in place - click on the screw to release";
+
+    }
+    if (preferences.soundPref.value !== "disabled") {
+        play(lock, false);
+    }
+}
+//=====================
+//End function
+//=====================
+
+
+
+//======================================================================================
+// Function to lock the widget on startup
+//======================================================================================
+function checkLockWidget() {
+    // check for aspect ratio and determine whether it is in portrait or landscape mode
+    if (screen.width > screen.height) {
+        aspectRatio = "landscape";
+    } else {
+        aspectRatio = "portrait";
+    }
+    print("aspectRatio " + aspectRatio);
+    print("preferences.widgetLockLandscapeModePref.value " + preferences.widgetLockLandscapeModePref.value);
+    print("preferences.widgetLockPortraitModePref.value " + preferences.widgetLockPortraitModePref.value);
+    // check if the widget has a lock for the screen type.
+    if (aspectRatio === "landscape") {
+        if (preferences.widgetLockLandscapeModePref.value === "disabled") {
+            pin.opacity = 1;
+            mainWindow.locked = false;
+            // this does not work yet
+            pin.tooltip = "click me to lock the widget in place";
+            //screw2.tooltip="click me to lock the widget in place";
+            return;
+        }
+        print("checkLockWidget locking in landscape");
+        pin.opacity = 255;
+        mainWindow.locked = true;
+        // check if the widget has a lock for the screen type.
+        pin.tooltip = "click me to unlock";
+    }
+    // check if the widget has a lock for the screen type.
+    if (aspectRatio === "portrait") {
+        if (preferences.widgetLockPortraitModePref.value === "disabled") {
+            pin.opacity = 1;
+            mainWindow.locked = false;
+            // this does not work yet
+            pin.tooltip = "click me to lock the widget in place";
+            //screw2.tooltip="click me to lock the widget in place";
+        } else {
+            print("checkLockWidget locking in portrait");
+            pin.opacity = 255;
+            mainWindow.locked = true;
+            // check if the widget has a lock for the screen type.
+            pin.tooltip = "click me to unlock";
+        }
+    }
+}
+//=====================
+//End function
+//=====================
+
