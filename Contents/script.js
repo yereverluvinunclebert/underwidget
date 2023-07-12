@@ -9,6 +9,7 @@ var steam = "Resources/steamsound.mp3";
 var winding = "Resources/winding.mp3";
 var cogrotation = 0;
 var scale	 = Number(preferences.sizePref.value) / 100;
+var widgetName = "underwidget.widget";
 
 //==============================
 // resizing variables
@@ -147,6 +148,9 @@ var scale	 = Number(preferences.sizePref.value) / 100;
     var shadowvoffsetDefault = shadow.voffset;
     var shadowwidthDefault = shadow.width ;
     var shadowheightDefault = shadow.height;
+    
+    var debugFlg = "";
+    
 
 function tick() {
 	var d = new Date(),
@@ -175,15 +179,24 @@ var d = new Date(),
 	m = d.getMinutes();
 
 hourHand.rotation = 15 * h + Math.floor(m / 4) + 6;
-//==============================
-//
-//==============================
+
+//===========================================
+// this function runs on startup
+//===========================================
 function startup() {
+    debugFlg = preferences.debugflgPref.value;
+    if (debugFlg === "1") {
+        preferences.imageEditPref.hidden=false;
+        preferences.imageCmdPref.hidden=false;
+    } else {
+        preferences.imageEditPref.hidden=true;
+        preferences.imageCmdPref.hidden=true;
+    }
+    
     resize(); 		// resize if required
     mainScreen(); 	// check the widget is on-screen
 
     mainWindow.level = preferences.windowLevel.value;
-
 
     setmenu(); // build the menu
     buildVitality("Resources/clock-dock.png",h,m,preferences.windowLevel.value);

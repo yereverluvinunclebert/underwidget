@@ -193,40 +193,29 @@ function menuitem1OnClick() {
 // this function opens the URL for paypal
 //===========================================
 function menuitem2OnClick() {
-    var answer = alert("Help support the creation of more widgets like this, send us a beer! This button opens a browser window and connects to the Paypal donate page for this widget). Will you be kind and proceed?", "Open Browser Window", "No Thanks");
-    if (answer === 1) {
-        openURL("https://www.paypal.com/uk/cgi-bin/webscr?cmd=_flow&SESSION=Bj-G10s9o2JJwW_SC1DScBhMvxWaZTF5beyijIne_IL7X0AaTZLYJnwP6z8&dispatch=50a222a57771920b6a3d7b606239e4d529b525e0b7e69bf0224adecfb0124e9b61f737ba21b081981b5bc1bed9bcd4a664bb0e309d0a9e4f");
-        //openURL("http://lightquick.co.uk/donate-a-beer.html?Itemid=269");
-    }
-}
-//=====================
-//End function
-//=====================
-//===========================================
-// this function opens my Amazon URL wishlist
-//===========================================
-function menuitem3OnClick() {
-    var answer = alert("Help support the creation of more widgets like this. Buy me a small item on my Amazon wishlist! This button opens a browser window and connects to my Amazon wish list page). Will you be kind and proceed?", "Open Browser Window", "No Thanks");
-    if (answer === 1) {
-        openURL("http://www.amazon.co.uk/gp/registry/registry.html?ie=UTF8&id=A3OBFB6ZN4F7&type=wishlist");
-    }
-}
-//=====================
-//End function
-//=====================
-//===========================================
-// this function opens the rocketdock URL
-//===========================================
-function menuitem4OnClick() {
+    var answer = alert("Help support the creation of more widgets like this, send us a coffee! This button opens a browser window and connects to the Kofi donate page for this widget). Will you be kind and proceed?", "Open Browser Window", "No Thanks");
 
-    var answer = alert("Log in and vote for the widget on Rocketdock. This button opens a browser window and connects to the Rocketdock page where you can give the widget a 5 star rating... Will you be kind and proceed?", "Open Browser Window", "No Thanks");
     if (answer === 1) {
-        openURL("http://rocketdock.com/addon/misc/45672");
+                openURL("https://www.ko-fi.com/yereverluvinunclebert");
     }
 }
 //=====================
 //End function
 //=====================
+
+//===========================================
+// this function opens the browser at the contact URL
+//===========================================
+function facebookChat() {
+    var answer = alert("Visiting the Facebook chat page - this button opens a browser window and connects to our Facebook chat page.). Proceed?", "Open Browser Window", "No Thanks");
+    if (answer === 1) {
+        openURL("http://www.facebook.com/profile.php?id=100012278951649");
+    }
+}
+//=====================
+//End function
+//=====================
+
 //===========================================
 // this function opens other widgets URL
 //===========================================
@@ -245,7 +234,7 @@ function menuitem5OnClick() {
 function menuitem6OnClick() {
     var answer = alert("Download latest version of the widget - this button opens a browser window and connects to the widget download page where you can check and download the latest zipped .WIDGET file). Proceed?", "Open Browser Window", "No Thanks");
     if (answer === 1) {
-        openURL("http://lightquick.co.uk/downloads/steampunk-underwidget.html?Itemid=264");
+        openURL("https://github.com/yereverluvinunclebert/underwidget");
     }
 }
 //=====================
@@ -279,67 +268,97 @@ function nullfunction() { print("null"); }
 //=========================================================================
 function setmenu() {
     mainWindow.onContextMenu = function () {
-        var items = [];
-        items[1] = new MenuItem();
-        items[1].title = "Online Help";
-        items[1].onSelect = function () {
-            menuitem1OnClick();
-        };
-        items[2] = new MenuItem();
-        items[2].title = "Buy us a Beer with Paypal";
-        items[2].onSelect = function () {
+        var items = [], mItem, sItem;
+
+        mItem = new MenuItem();
+        mItem.title = "Donate a Coffee with Ko-Fi";
+        mItem.onSelect = function () {
             menuitem2OnClick();
         };
-        items[3] = new MenuItem();
-        items[3].title = "Donate with Amazon";
-        items[3].onSelect = function () {
-            menuitem3OnClick();
-        };
-        items[4] = new MenuItem();
-        items[4].title = "Vote on Rocketdock";
-        items[4].onSelect = function () {
-            menuitem4OnClick();
-        };
-        items[5] = new MenuItem();
-        items[5].title = "";
-        items[5].onSelect = function () {
+        items.push(mItem);
+      
+        mItem = new MenuItem();
+        mItem.title = "";
+        mItem.onSelect = function () {
             nullfunction();
         };
-        items[6] = new MenuItem();
-        items[6].title = "See More Steampunk Widgets";
-        items[6].onSelect = function () {
-            menuitem5OnClick();
+        items.push(mItem);
+
+        mItem = new MenuItem();
+        mItem.title = "Online Help and other online options";
+        items.push(mItem);
+
+              sItem = new MenuItem();
+              sItem.title = "See More Steampunk Widgets";
+              sItem.onSelect = function () {
+                  menuitem5OnClick();
+              };
+              mItem.appendChild(sItem);
+
+              sItem = new MenuItem();
+              sItem.title = "Download Latest Version";
+              sItem.onSelect = function () {
+                  menuitem6OnClick();
+              };
+              mItem.appendChild(sItem);
+
+              sItem = new MenuItem();
+              sItem.title = "Contact Support";
+              sItem.onSelect = function () {
+                  menuitem7OnClick();
+              };
+              mItem.appendChild(sItem);
+
+              sItem = new MenuItem();
+              sItem.title = "Chat about Steampunk Widgets on Facebook";
+              sItem.onSelect = function() {
+                  facebookChat();
+              };
+             mItem.appendChild(sItem);
+
+        mItem = new MenuItem();
+        mItem.title = "Display Licence Agreement...";
+        mItem.onSelect = function () {
+            displayLicence();
         };
-        items[7] = new MenuItem();
-        items[7].title = "Download Latest Version";
-        items[7].onSelect = function () {
-            menuitem6OnClick();
-        };
-        items[11] = new MenuItem();
-        items[11].title = "Contact Support";
-        items[11].onSelect = function () {
-            menuitem7OnClick();
-        };
-        items[10] = new MenuItem();
-        items[10].title = "";
-        items[10].onSelect = function() {
+        items.push(mItem);
+      
+        mItem = new MenuItem();
+        mItem.title = "";
+        mItem.onSelect = function() {
             nullfunction();
         };
-        items[11] = new MenuItem();
-        items[11].title = "Reveal Widget in Windows Explorer";
-        items[11].onSelect = function() {
+        items.push(mItem);
+      
+        mItem = new MenuItem();
+        mItem.title = "Reveal Widget in Windows Explorer";
+        mItem.onSelect = function() {
             findWidget();
         };
-        items[12] = new MenuItem();
-        items[12].title = "";
-        items[12].onSelect = function() {
+        items.push(mItem);
+
+        mItem = new MenuItem();
+        mItem.title = "";
+        mItem.onSelect = function() {
             nullfunction();
         };
-        items[13] = new MenuItem();
-        items[13].title = "Reload Widget (F5)";
-        items[13].onSelect = function () {
+        items.push(mItem);
+
+        mItem = new MenuItem();
+        mItem.title = "Reload Widget (F5)";
+        mItem.onSelect = function () {
             reloadWidget();
         };
+        items.push(mItem);
+
+        if (preferences.imageEditPref.value != "" && debugFlg === "1") {
+            mItem = new MenuItem();
+            mItem.title = "Edit Widget using " + preferences.imageEditPref.value ;
+            mItem.onSelect = function () {
+                editWidget();
+            };
+            items.push(mItem);
+         }
 
         mainWindow.contextMenuItems = items;
     };
@@ -369,29 +388,82 @@ function setClickPointToolTips() {
 }
 
 
+
+
+
+
+
 //===========================================
 // this function causes explorer to be opened and the file selected
 //===========================================
 function findWidget() {
 
- var widgetName = "underwidget.widget";
  // temporary development version of the widget
- //var widgetName = "magnifier2.widget";
- var widgetFullPath = convertPathToPlatform(system.userWidgetsFolder + "/" + widgetName);
- var alertString = "The widget folder is: \n";
- alertString += system.userWidgetsFolder + " \n\n";
- alertString += "The widget name is: \n";
- alertString += widgetName+".\n ";
- var answer = alert(alertString, "Open the widget's folder?", "No Thanks");
- if (answer === 1) {
-            if (filesystem.itemExists(widgetFullPath) )   {
-              //dosCommand = "Explorer.exe /e, /select,E:\\Documents and Settings\\Dean Beedell\\My Documents\\My Widgets\\mars 2.widget";
-              dosCommand = "Explorer.exe /e, /select," + widgetFullPath;
-              //print("dosCommand "+dosCommand);
-              //var explorerExe = runCommand(dosCommand, "bgResult");
-              filesystem.reveal(widgetFullPath);
+    var widgetFullPath = convertPathToPlatform(system.userWidgetsFolder + "/" + widgetName);
+    var alertString = "The widget folder is: \n";
+    if (filesystem.itemExists(widgetFullPath)) {
+        alertString += system.userWidgetsFolder + " \n\n";
+        alertString += "The widget name is: \n";
+        alertString += widgetName + ".\n ";
+
+        alert(alertString, "Open the widget's folder?", "No Thanks");
+
+        filesystem.reveal(widgetFullPath);
+    } else {
+        widgetFullPath = resolvePath(".");   
+        filesystem.reveal(widgetFullPath);
+        print("widgetFullPath " + widgetFullPath);
+    }
+}
+//=====================
+//End function
+//=====================
+
+
+//===========================================
+// this function edits the widget
+//===========================================
+function editWidget() {
+    //var answer = alert("Editing the widget. Proceed?", "Open Editor", "No Thanks");
+    //if (answer === 1) {
+        //uses the contents of imageEditPref to initiate your default editor
+        performCommand("menu");
+    //}
+}
+//=====================
+//End function
+//=====================
+
+//=====================
+// function to carry out a command
+//=====================
+function performCommand(method) {
+    var answer;
+
+    if (method === "menu") {
+        runCommandInBg(preferences.imageEditPref.value, "runningTask");
+    } else {
+        print("method "+method);
+        if (system.event.altKey) { // filesystem.open() call
+            if (preferences.openFilePref.value === "") {
+                answer = alert("This widget has not been assigned an alt+double-click function. You need to open the preferences and select a file to be opened. Do you wish to proceed?", "Open Preferences", "No Thanks");
+                if (answer === 1) {
+                    showWidgetPreferences();
+                }
+                return;
             }
- }
+            filesystem.open(preferences.openFilePref.value);
+        } else {
+            if (preferences.imageCmdPref.value === "") {
+                answer = alert("This widget has not been assigned a double-click function. You need to open the preferences and enter a run command for this widget. Do you wish to proceed?", "Open Preferences", "No Thanks");
+                if (answer === 1) {
+                    showWidgetPreferences();
+                }
+                return;
+            }
+                runCommandInBg(preferences.imageCmdPref.value, "runningTask");
+        }
+    }
 }
 //=====================
 //End function
